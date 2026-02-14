@@ -1,0 +1,138 @@
+/* --- Global Styles --- */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Quicksand', sans-serif;
+    background: radial-gradient(circle at center, #2e0219 0%, #0f0005 100%);
+    color: #ffd1dc;
+    text-align: center;
+}
+
+h1, h2, .title, .big-question, .dinner-title, .finalText {
+    font-family: 'Parisienne', cursive;
+    text-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+}
+
+.scene {
+    display: none;
+    height: 100vh; width: 100vw;
+    position: absolute; top: 0; left: 0;
+    flex-direction: column; justify-content: center; align-items: center;
+    opacity: 0; transition: opacity 1s ease;
+    z-index: 10;
+}
+
+.scene.active { display: flex; opacity: 1; z-index: 20; }
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px; border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Interactive Components --- */
+button {
+    margin-top: 20px;
+    padding: 12px 35px;
+    background: linear-gradient(45deg, #ff4e88, #d4145a);
+    border: none; border-radius: 50px;
+    color: white; cursor: pointer;
+    box-shadow: 0 5px 15px rgba(212, 20, 90, 0.4);
+    transition: transform 0.2s;
+}
+
+button:hover { transform: translateY(-2px); }
+
+input {
+    padding: 12px; border-radius: 25px;
+    border: 2px solid #ff4e88; background: rgba(0,0,0,0.3);
+    color: #fff; text-align: center; margin: 10px 0;
+}
+
+/* --- Scene 3: Timeline --- */
+.timeline-wrapper { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+.card { background: rgba(255, 255, 255, 0.1); padding: 15px 20px; border-radius: 12px; cursor: pointer; }
+#memoryReveal { min-height: 50px; margin-top: 20px; color: #ff99cc; font-style: italic; }
+
+/* --- Scene 4: Love Sync --- */
+.bar-container { width: 300px; height: 15px; background: rgba(255,255,255,0.2); border-radius: 10px; margin-top: 20px; overflow: hidden; }
+#progress { height: 100%; width: 0%; background: #ff4e88; transition: width 0.3s; }
+
+/* --- Scene 5: Heart --- */
+#heart {
+    width: 100px; height: 100px; background: #d4145a;
+    transform: rotate(-45deg); position: relative; margin: 40px;
+    animation: heartbeat 1.5s infinite; cursor: pointer;
+}
+#heart::before, #heart::after {
+    content: ""; width: 100px; height: 100px;
+    background: #d4145a; border-radius: 50%; position: absolute;
+}
+#heart::before { top: -50px; left: 0; }
+#heart::after { left: 50px; top: 0; }
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(-45deg); }
+}
+
+/* --- SCENE 8: 3D ILLUSTRATION --- */
+#scene8 { background: #000; perspective: 1000px; }
+.rooftop-view { position: absolute; width: 100%; height: 100%; background: linear-gradient(#02020a, #0d0d2b); z-index: 1; }
+.moon { position: absolute; top: 40px; right: 15%; width: 50px; height: 50px; background: #fffdf0; border-radius: 50%; box-shadow: 0 0 40px #fff; }
+.stars-bg { position: absolute; width: 100%; height: 100%; background: radial-gradient(white 1px, transparent 0); background-size: 60px 60px; opacity: 0.2; }
+
+.dining-area { z-index: 5; display: flex; flex-direction: column; align-items: center; width: 100%; padding-top: 50px; }
+.table-perspective { perspective: 1200px; margin-top: 20px; width: 100%; display: flex; justify-content: center; }
+
+.real-table {
+    width: 600px; height: 350px;
+    background: linear-gradient(135deg, #2c1508, #1a0a04);
+    border: 8px solid #3d1f0e; border-radius: 20px;
+    transform: rotateX(55deg);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.9), inset 0 0 50px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.place-setting { 
+    position: absolute; width: 100%; height: 100%; 
+    transform: translateZ(10px); 
+}
+
+/* Centered Plate Logic */
+.charger-plate {
+    width: 180px; height: 180px;
+    background: #c0c0c0; border-radius: 50%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex; justify-content: center; align-items: center;
+}
+.dinner-plate { width: 130px; height: 130px; background: #fff; border-radius: 50%; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+
+.fork, .knife { width: 10px; height: 120px; background: linear-gradient(to right, #888, #eee, #888); border-radius: 2px; position: absolute; top: 50%; transform: translateY(-50%); }
+.fork { left: 80px; }
+.knife { right: 80px; }
+
+/* 3D Wine Glass */
+.wine-glass-3d { position: absolute; top: 20px; right: 80px; transform: rotateX(-55deg) translateZ(50px); }
+.glass-bowl-3d { width: 45px; height: 60px; border: 2px solid rgba(255,255,255,0.3); border-radius: 0 0 22px 22px; position: relative; overflow: hidden; background: rgba(255,255,255,0.05); }
+.wine-liquid { position: absolute; bottom: 0; width: 100%; height: 0%; background: linear-gradient(#720014, #4a000d); transition: height 2s cubic-bezier(0.4, 0, 0.2, 1); }
+.glass-stem-3d { width: 4px; height: 50px; background: rgba(255,255,255,0.4); margin: -2px auto; }
+.glass-base-3d { width: 40px; height: 6px; background: rgba(255,255,255,0.3); border-radius: 50%; margin: 0 auto; }
+
+/* Centerpiece */
+.centerpiece { position: absolute; top: 20px; left: 50%; transform: translateX(-50%) rotateX(-55deg) translateZ(40px); }
+.candle-3d { width: 20px; height: 80px; background: #fff; border-radius: 5px; position: relative; }
+.flame-3d { width: 12px; height: 20px; background: #ffa500; border-radius: 50% 50% 20% 20%; position: absolute; top: -20px; left: 4px; animation: flicker 0.1s infinite alternate; box-shadow: 0 0 20px #ff4500; }
+
+@keyframes flicker { from { opacity: 0.8; transform: scale(1); } to { opacity: 1; transform: scale(1.1); } }
+
+/* Ticket UI */
+.controls-ui { margin-top: 50px; z-index: 10; }
+.ticket-container-posh { margin-top: 20px; animation: slideUp 0.8s ease; }
+.posh-ticket { background: #fff; color: #1a0a04; width: 320px; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid #3d1f0e; }
+.ticket-top { background: #1a0a04; color: #ffd1dc; padding: 10px; font-weight: bold; }
+.ticket-mid { padding: 20px; border-bottom: 2px dashed #ddd; text-align: left; }
+.ticket-bottom { padding: 15px; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; }
+@keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

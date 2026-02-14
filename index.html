@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+    <canvas id="fireworks"></canvas>
+    <div class="fireflies"></div> 
+
+    <div id="app">
+        <section class="scene active" id="scene1">
+            <div class="glass-panel">
+                <h1 class="title">In every universe...<br>I still choose you 💫</h1>
+                <button onclick="start()">Enter My Heart</button>
+            </div>
+        </section>
+
+        <section class="scene" id="scene2">
+            <div class="glass-panel">
+                <h2>Access My Heart 🔐</h2>
+                <input id="password" placeholder="Secret nickname..." autocomplete="off">
+                <button onclick="checkPassword()">Unlock</button>
+                <p id="msg"></p>
+            </div>
+        </section>
+
+        <section class="scene" id="scene3">
+            <h2>Our Love Story 💞</h2>
+            <div class="timeline-wrapper">
+                <div class="card" data-message="That was the moment I knew... 💖">First time we talked 💬</div>
+                <div class="card" data-message="I didn’t want the sun to come up. 🌙">First late night call 🌙</div>
+                <div class="card" data-message="My heart literally skipped a beat. 🥺">First “I miss you” 🥺</div>
+                <div class="card" data-message="We are a beautiful mess. 😂">Our chaos & laughs 😂</div>
+                <div class="card" data-message="Every second is a memory I cherish. 💞">Every moment since 💖</div>
+            </div>
+            <div id="memoryReveal"></div>
+            <button class="nav-btn" onclick="next(4)">Continue</button>
+        </section>
+
+        <section class="scene" id="scene4">
+            <h2>Love Sync Test 🎮</h2>
+            <p>Who loves the other more?</p>
+            <div class="game-container">
+                <button onclick="addLove()">Me (You) 😌</button>
+                <button id="dodge">You (Me) 😏</button>
+            </div>
+            <div class="bar-container"><div id="progress"></div></div>
+        </section>
+
+        <section class="scene" id="scene5">
+            <h2>Heal My Heart 💔</h2>
+            <div class="heart-container"><div id="heart"></div></div>
+            <p class="instruction">Tap & Hold to fix it...</p>
+        </section>
+
+        <section class="scene" id="scene6">
+            <h1 class="big-question">Will you be mine forever? 💍</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="finalYes()">YES, I Will 💖</button>
+                <button id="finalNo">NO 😒</button>
+            </div>
+        </section>
+
+        <section class="scene" id="scene7">
+            <div class="glass-panel">
+                <h1 class="finalText">You are my Forever. 💖</h1>
+                <p class="subtitle">I love you more than code can say.</p>
+            </div>
+        </section>
+
+        <section class="scene" id="scene8">
+            <div class="rooftop-view">
+                <div class="stars-bg"></div>
+                <div class="moon"></div>
+            </div>
+            
+            <div class="dining-area">
+                <h1 class="dinner-title">A Posh Night for Us 🥂</h1>
+                <div class="table-perspective">
+                    <div class="real-table">
+                        <div class="place-setting">
+                            <div class="charger-plate">
+                                <div class="dinner-plate"></div>
+                            </div>
+                            <div class="fork"></div>
+                            <div class="knife"></div>
+                            
+                            <div class="wine-glass-3d">
+                                <div class="glass-bowl-3d">
+                                    <div class="wine-liquid" id="wineLiquid"></div>
+                                </div>
+                                <div class="glass-stem-3d"></div>
+                                <div class="glass-base-3d"></div>
+                            </div>
+
+                            <div class="centerpiece">
+                                <div class="candle-3d">
+                                    <div class="flame-3d"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-ui" id="finalAction">
+                    <button class="posh-btn" onclick="pourWine()">Pour Wine 🍷</button>
+                    <button id="ticketBtn" class="posh-btn" style="display:none;" onclick="showTicket()">Get Your Ticket 🎫</button>
+                </div>
+
+                <div id="dateTicket" class="ticket-container-posh" style="display:none;">
+                    <div class="posh-ticket">
+                        <div class="ticket-top">VALENTINE'S DATE PASS</div>
+                        <div class="ticket-mid">
+                            <p>Guest of Honor: <strong>My Favorite Person</strong></p>
+                            <p>Reservation: <strong>One Real Romantic Date</strong></p>
+                            <p>Valid: <strong>Forever ❤️</strong></p>
+                        </div>
+                        <div class="ticket-bottom">
+                            <span>Save this!</span>
+                            <button onclick="downloadTicket()">Save My Ticket 💾</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
